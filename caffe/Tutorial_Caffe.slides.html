@@ -15,8 +15,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <!-- General and theme style sheets -->
-<link rel="stylesheet" href="http://cdn.jsdelivr.net/reveal.js/2.5.0/css/reveal.css">
-<link rel="stylesheet" href="http://cdn.jsdelivr.net/reveal.js/2.5.0/css/theme/simple.css" id="theme">
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/reveal.js/2.6.2/css/reveal.css">
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/reveal.js/2.6.2/css/theme/simple.css" id="theme">
 
 <!-- If the query includes 'print-pdf', include the PDF print sheet -->
 <script>
@@ -24,14 +24,14 @@ if( window.location.search.match( /print-pdf/gi ) ) {
         var link = document.createElement( 'link' );
         link.rel = 'stylesheet';
         link.type = 'text/css';
-        link.href = 'http://cdn.jsdelivr.net/reveal.js/2.5.0/css/print/pdf.css';
+        link.href = 'http://cdn.jsdelivr.net/reveal.js/2.6.2/css/print/pdf.css';
         document.getElementsByTagName( 'head' )[0].appendChild( link );
 }
 
 </script>
 
 <!--[if lt IE 9]>
-<script src="http://cdn.jsdelivr.net/reveal.js/2.5.0/lib/js/html5shiv.js"></script>
+<script src="http://cdn.jsdelivr.net/reveal.js/2.6.2/lib/js/html5shiv.js"></script>
 <![endif]-->
 
 <!-- Get Font-awesome from cdn -->
@@ -268,83 +268,102 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="1.-Preparar-el-dataset">1. Preparar el dataset<a class="anchor-link" href="#1.-Preparar-el-dataset">&#182;</a></h2><p>La primera capa de la red neuronal en Caffe, permite leer los datos en diferentes formatos.</p>
-
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="5">
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="1.1-Preprocesamiento-de-Im&#225;genes">1.1 Preprocesamiento de Im&#225;genes<a class="anchor-link" href="#1.1-Preprocesamiento-de-Im&#225;genes">&#182;</a></h2><ul>
+<li><p>Es recomendable tener una gran cantidad de datos en el dataset, en este punto es posible aumentarlos realizando un preprocesamiento en la capa de datos en Caffe, por defecto este incluye:</p>
 <ul>
-<li><strong>Image_Data</strong>: Requiere un csv con el path de cada imagen y la clasificación de estas.<br>
-<br></li>
+<li>Mirroring</li>
+<li>Random crop</li>
+<li>Mean substraction</li>
+<li>Scaling</li>
+</ul>
+</li>
 </ul>
 
 </div>
 </div>
-</div>
-    </div><div class="fragment" data-fragment-index="6">
+</div></section><section>
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="1.2-Balanceo-de-Clases">1.2 Balanceo de Clases<a class="anchor-link" href="#1.2-Balanceo-de-Clases">&#182;</a></h2><ul>
+<li>Para evitar resultados falsamente optimistas es necesario tener un balanceo de clases que permita a la red neuronal aprender de todos los datos de entrenamiento.</li>
+</ul>
+<p><img src="https://bytebucket.org/sandiego206/10ccc_caffe/raw/85591ad9385aa204fc5673b6bc1dcc35906e2a72/caffe/imagenes/caltech101.png" width=600 height=300></p>
+
+</div>
+</div>
+</div></section><section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="1.3-Preparar-el-dataset">1.3 Preparar el dataset<a class="anchor-link" href="#1.3-Preparar-el-dataset">&#182;</a></h2><p>La primera capa de la red neuronal en Caffe, permite leer los datos en diferentes formatos.</p>
 <ul>
-<li><strong>LMDB</strong>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Recomendado para datasets de <strong>gran</strong> tamaño otorga mejor rendimiento I/O, los mismos requisitos que Image_Data.<br>
-<br></li>
+<li><p><strong>Image_Data</strong>: Requiere un csv con el path de cada imagen y la clasificación de estas.<br>
+<br></p>
+</li>
+<li><p><strong>LMDB</strong>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Recomendado para datasets de <strong>gran</strong> tamaño otorga mejor rendimiento I/O, los mismos requisitos que Image_Data.<br>
+<br></p>
+</li>
+<li><p><strong>Window</strong>: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lee ventanas en la imagen, usado para detección de objetos.</p>
+</li>
 </ul>
 
 </div>
 </div>
-</div>
-    </div><div class="fragment" data-fragment-index="7">
+</div></section><section>
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li><strong>Window</strong>: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lee ventanas en la imagen, usado para detección de objetos.</li>
-</ul>
-
-</div>
-</div>
-</div>
-    </div></section>
-    </section><section>
-    <section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Qu&#233;-es-Deep-Learning?">Qu&#233; es Deep Learning?<a class="anchor-link" href="#Qu&#233;-es-Deep-Learning?">&#182;</a></h2><p>El término <em>deep learning</em> refiere a algoritmos en machine learning que tienen múltiples capas y pueden aprender características de los datos automáticamente [1], las cuales representan objetos en niveles de abstracción mayor.</p>
-<p><img src="http://devblogs.nvidia.com/parallelforall/wp-content/uploads/sites/3/2014/09/nn_example-624x218.png" alt="Alt text"></p>
-<p>Aunque los ingredientes básicos de los algoritmos usados en deep learning (gradiente descendiente, redes neuronales) han sido desarrollados hace algún tiempo, actualmente han aumentado su popularidad por varias razones, incluyendo los avances en poder computacional, reducción de costos del hardware, y avances en la investigación de machine learning.</p>
-<p>Los algoritmos de Deep learning pueden ser categorizados por su arquitectura (feed-forward, feed-back, o bi-directional) y en los protocolos de entrenamiento (supervisado, híbrido o no-supervisado) [2].</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre> 
+<h2 id="Capa-de-Datos">Capa de Datos<a class="anchor-link" href="#Capa-de-Datos">&#182;</a></h2><hr>
+<div class="highlight"><pre><span class="n">name</span><span class="p">:</span> <span class="s">&quot;CaltechNet&quot;</span>
+    <span class="n">layer</span> <span class="p">{</span>
+      <span class="n">name</span><span class="p">:</span> <span class="s">&quot;data&quot;</span> 
+      <span class="nb">type</span><span class="p">:</span> <span class="n">DATA</span>
+      <span class="n">top</span><span class="p">:</span> <span class="s">&quot;data&quot;</span>
+      <span class="n">top</span><span class="p">:</span> <span class="s">&quot;label&quot;</span>
+      <span class="n">data_param</span> <span class="p">{</span>
+        <span class="n">source</span><span class="p">:</span> <span class="s">&quot;/bigdata/drueda/datasets_lmdb/caltech_train_lmdb&quot;</span>
+        <span class="n">backend</span><span class="p">:</span> <span class="n">LMDB</span>
+        <span class="n">batch_size</span><span class="p">:</span> <span class="mi">16</span>
+      <span class="p">}</span>
+      <span class="n">transform_param</span> <span class="p">{</span>
+        <span class="n">crop_size</span><span class="p">:</span> <span class="mi">227</span>
+        <span class="n">mean_file</span><span class="p">:</span> <span class="s">&quot;/bigdata/drueda/datasets_lmdb/caltech_mean.binaryproto&quot;</span>
+        <span class="n">mirror</span><span class="p">:</span> <span class="bp">True</span>
+        <span class="n">scale</span><span class="p">:</span> <span class="mf">0.00390625</span>
+        <span class="p">}</span>
+      <span class="n">include</span><span class="p">:</span> <span class="p">{</span> <span class="n">phase</span><span class="p">:</span> <span class="n">TRAIN</span> <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">layer</span> <span class="p">{</span>
+      <span class="n">name</span><span class="p">:</span> <span class="s">&quot;data&quot;</span>
+      <span class="nb">type</span><span class="p">:</span> <span class="n">DATA</span>
+      <span class="n">top</span><span class="p">:</span> <span class="s">&quot;data&quot;</span>
+      <span class="n">top</span><span class="p">:</span> <span class="s">&quot;label&quot;</span>
+      <span class="n">data_param</span> <span class="p">{</span>
+        <span class="n">source</span><span class="p">:</span> <span class="s">&quot;/bigdata/drueda/datasets_lmdb/caltech_validation_lmdb&quot;</span>
+        <span class="n">backend</span><span class="p">:</span> <span class="n">LMDB</span>
+        <span class="n">batch_size</span><span class="p">:</span> <span class="mi">16</span>
+      <span class="p">}</span>
+      <span class="n">transform_param</span> <span class="p">{</span>
+        <span class="n">crop_size</span><span class="p">:</span> <span class="mi">227</span>
+        <span class="n">mean_file</span><span class="p">:</span> <span class="s">&quot;/bigdata/drueda/datasets_lmdb/caltech_mean.binaryproto&quot;</span>
+        <span class="n">mirror</span><span class="p">:</span> <span class="n">false</span>
+      <span class="p">}</span>
+      <span class="n">include</span><span class="p">:</span> <span class="p">{</span> <span class="n">phase</span><span class="p">:</span> <span class="n">TEST</span> <span class="p">}</span>
+    <span class="p">}</span>
 </pre></div>
 
 </div>
 </div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -363,9 +382,9 @@ div.output_prompt {
 </div>
 </div>
 
-<script src="http://cdn.jsdelivr.net/reveal.js/2.5.0/lib/js/head.min.js"></script>
+<script src="http://cdn.jsdelivr.net/reveal.js/2.6.2/lib/js/head.min.js"></script>
 
-<script src="http://cdn.jsdelivr.net/reveal.js/2.5.0/js/reveal.js"></script>
+<script src="http://cdn.jsdelivr.net/reveal.js/2.6.2/js/reveal.js"></script>
 
 <script>
 
@@ -380,8 +399,8 @@ transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/c
 
 // Optional libraries used to extend on reveal.js
 dependencies: [
-{ src: "http://cdn.jsdelivr.net/reveal.js/2.5.0/lib/js/classList.js", condition: function() { return !document.body.classList; } },
-{ src: "http://cdn.jsdelivr.net/reveal.js/2.5.0/plugin/notes/notes.js", async: true, condition: function() { return !!document.body.classList; } }
+{ src: "http://cdn.jsdelivr.net/reveal.js/2.6.2/lib/js/classList.js", condition: function() { return !document.body.classList; } },
+{ src: "http://cdn.jsdelivr.net/reveal.js/2.6.2/plugin/notes/notes.js", async: true, condition: function() { return !!document.body.classList; } }
 ]
 });
 </script>
