@@ -291,7 +291,7 @@ div.output_prompt {
 <h2 id="1.2-Balanceo-de-Clases">1.2 Balanceo de Clases<a class="anchor-link" href="#1.2-Balanceo-de-Clases">&#182;</a></h2><ul>
 <li>Para evitar resultados falsamente optimistas es necesario tener un balanceo de clases que permita a la red neuronal aprender de todos los datos de entrenamiento.</li>
 </ul>
-<p><img src="https://bytebucket.org/sandiego206/10ccc_caffe/raw/85591ad9385aa204fc5673b6bc1dcc35906e2a72/caffe/imagenes/caltech101.png" width=600 height=300></p>
+<p><img src="imagenes/caltech101.png" width=600 height=300></p>
 
 </div>
 </div>
@@ -323,7 +323,7 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Capa-de-Datos">Capa de Datos<a class="anchor-link" href="#Capa-de-Datos">&#182;</a></h2><hr>
+<h2 id="Archivo-prototxt---Data-Layer">Archivo prototxt - Data Layer<a class="anchor-link" href="#Archivo-prototxt---Data-Layer">&#182;</a></h2><hr>
 <div class="highlight"><pre><span class="n">name</span><span class="p">:</span> <span class="s">&quot;CaltechNet&quot;</span>
     <span class="n">layer</span> <span class="p">{</span>
       <span class="n">name</span><span class="p">:</span> <span class="s">&quot;data&quot;</span> 
@@ -343,28 +343,55 @@ div.output_prompt {
         <span class="p">}</span>
       <span class="n">include</span><span class="p">:</span> <span class="p">{</span> <span class="n">phase</span><span class="p">:</span> <span class="n">TRAIN</span> <span class="p">}</span>
     <span class="p">}</span>
-    <span class="n">layer</span> <span class="p">{</span>
-      <span class="n">name</span><span class="p">:</span> <span class="s">&quot;data&quot;</span>
-      <span class="nb">type</span><span class="p">:</span> <span class="n">DATA</span>
-      <span class="n">top</span><span class="p">:</span> <span class="s">&quot;data&quot;</span>
-      <span class="n">top</span><span class="p">:</span> <span class="s">&quot;label&quot;</span>
-      <span class="n">data_param</span> <span class="p">{</span>
-        <span class="n">source</span><span class="p">:</span> <span class="s">&quot;/bigdata/drueda/datasets_lmdb/caltech_validation_lmdb&quot;</span>
-        <span class="n">backend</span><span class="p">:</span> <span class="n">LMDB</span>
-        <span class="n">batch_size</span><span class="p">:</span> <span class="mi">16</span>
-      <span class="p">}</span>
-      <span class="n">transform_param</span> <span class="p">{</span>
-        <span class="n">crop_size</span><span class="p">:</span> <span class="mi">227</span>
-        <span class="n">mean_file</span><span class="p">:</span> <span class="s">&quot;/bigdata/drueda/datasets_lmdb/caltech_mean.binaryproto&quot;</span>
-        <span class="n">mirror</span><span class="p">:</span> <span class="n">false</span>
-      <span class="p">}</span>
-      <span class="n">include</span><span class="p">:</span> <span class="p">{</span> <span class="n">phase</span><span class="p">:</span> <span class="n">TEST</span> <span class="p">}</span>
-    <span class="p">}</span>
 </pre></div>
+<hr>
 
 </div>
 </div>
+</div></section>
+    </section><section>
+    <section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.1-Convolutional-Layer">2.1 Convolutional Layer<a class="anchor-link" href="#2.1-Convolutional-Layer">&#182;</a></h2><hr>
+<p><img src="imagenes/convolution.gif" width=400 height=400 align=left></p>
+<p><img src="imagenes/convolution_text.png" align=center></p>
+
+</div>
+</div>
+</div></section><section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.2-Activation-Layer">2.2 Activation Layer<a class="anchor-link" href="#2.2-Activation-Layer">&#182;</a></h2><p><img src="imagenes/relu.png"  align=left>
+<img src="imagenes/relu_text.png" align=center></p>
+
+</div>
+</div>
+</div></section><section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.2-Pooling-Layer">2.2 Pooling Layer<a class="anchor-link" href="#2.2-Pooling-Layer">&#182;</a></h2><hr>
+<p><img src="imagenes/pooling.gif" width=50% align=left ></p>
+<p><img src="imagenes/pooling_text.png" align=center ></p>
+
+</div>
+</div>
+</div></section>
+    </section><section>
+    <section>
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
