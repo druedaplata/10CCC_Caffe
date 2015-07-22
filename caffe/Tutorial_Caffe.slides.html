@@ -234,6 +234,7 @@ div.output_prompt {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Deep-Learning-with-Caffe">Deep Learning with Caffe<a class="anchor-link" href="#Deep-Learning-with-Caffe">&#182;</a></h1><p>Framework desarrollado en la Universidad de Berkeley usando C++ y CUDA, cuenta con interfaces de uso en Python, Matlab y Linea de Comandos.</p>
 <p>Caffe permite crear una arquitectura de red de manera sencilla, definir hiperparámetros para el entrenamiento y cuenta con una gran cantidad de capas predefinidas, modelos entrenados para realizar clasificación de imagenes.</p>
+<p>Caffe: <a href="https://github.com/BVLC/caffe">https://github.com/BVLC/caffe</a></p>
 
 </div>
 </div>
@@ -257,7 +258,8 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Clasificaci&#243;n-de-Im&#225;genes-con-Caffe">Clasificaci&#243;n de Im&#225;genes con Caffe<a class="anchor-link" href="#Clasificaci&#243;n-de-Im&#225;genes-con-Caffe">&#182;</a></h2><p><em>Instruccions detalladas para el entrenamiento en Caffe en el siguiente <a href="http://nbviewer.ipython.org/urls/bitbucket.org/sandiego206/datasets-training/raw/d0c609170f5afaf1881ced95363a21b74dbf5367/Instrucciones.ipynb">enlace</a></em></p>
+<h2 id="Clasificaci&#243;n-de-Im&#225;genes-con-Caffe">Clasificaci&#243;n de Im&#225;genes con Caffe<a class="anchor-link" href="#Clasificaci&#243;n-de-Im&#225;genes-con-Caffe">&#182;</a></h2><p><img src="imagenes/mylenet.png"></p>
+<p><em>Instruccions detalladas para el entrenamiento en Caffe en el siguiente <a href="http://nbviewer.ipython.org/urls/bitbucket.org/sandiego206/datasets-training/raw/d0c609170f5afaf1881ced95363a21b74dbf5367/Instrucciones.ipynb">enlace</a></em></p>
 
 </div>
 </div>
@@ -289,7 +291,7 @@ div.output_prompt {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="1.2-Balanceo-de-Clases">1.2 Balanceo de Clases<a class="anchor-link" href="#1.2-Balanceo-de-Clases">&#182;</a></h2><ul>
-<li>Para evitar resultados falsamente optimistas es necesario tener un balanceo de clases que permita a la red neuronal aprender de todos los datos de entrenamiento.</li>
+<li>Para evitar resultados falsamente optimistas es recomendable tener un balanceo de clases que permita a la red neuronal aprender de todos los datos de entrenamiento.</li>
 </ul>
 <p><img src="imagenes/caltech101.png" width=600 height=300></p>
 
@@ -323,7 +325,7 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Archivo-prototxt---Data-Layer">Archivo prototxt - Data Layer<a class="anchor-link" href="#Archivo-prototxt---Data-Layer">&#182;</a></h2><hr>
+<h2 id="1.4-Data-Layer">1.4 Data Layer<a class="anchor-link" href="#1.4-Data-Layer">&#182;</a></h2><hr>
 <div class="highlight"><pre><span class="n">name</span><span class="p">:</span> <span class="s">&quot;CaltechNet&quot;</span>
     <span class="n">layer</span> <span class="p">{</span>
       <span class="n">name</span><span class="p">:</span> <span class="s">&quot;data&quot;</span> 
@@ -339,7 +341,6 @@ div.output_prompt {
         <span class="n">crop_size</span><span class="p">:</span> <span class="mi">227</span>
         <span class="n">mean_file</span><span class="p">:</span> <span class="s">&quot;/bigdata/drueda/datasets_lmdb/caltech_mean.binaryproto&quot;</span>
         <span class="n">mirror</span><span class="p">:</span> <span class="bp">True</span>
-        <span class="n">scale</span><span class="p">:</span> <span class="mf">0.00390625</span>
         <span class="p">}</span>
       <span class="n">include</span><span class="p">:</span> <span class="p">{</span> <span class="n">phase</span><span class="p">:</span> <span class="n">TRAIN</span> <span class="p">}</span>
     <span class="p">}</span>
@@ -382,16 +383,117 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2.2-Pooling-Layer">2.2 Pooling Layer<a class="anchor-link" href="#2.2-Pooling-Layer">&#182;</a></h2><hr>
-<p><img src="imagenes/pooling.gif" width=50% align=left ></p>
-<p><img src="imagenes/pooling_text.png" align=center ></p>
+<h2 id="2.3-Pooling-Layer">2.3 Pooling Layer<a class="anchor-link" href="#2.3-Pooling-Layer">&#182;</a></h2><hr>
+<p><img src="imagenes/pooling.gif" width=50% align=left >
+<img src="imagenes/pooling_text.png" align=center ></p>
 
 </div>
 </div>
-</div></section>
+</div></section><section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.4-Fully-Connected-Layer">2.4 Fully Connected Layer<a class="anchor-link" href="#2.4-Fully-Connected-Layer">&#182;</a></h2><p><img src="imagenes/fully_connected.gif" align=left ></p>
+<p><img src="imagenes/fully_connected_text.png" align=center ></p>
+
+</div>
+</div>
+</div></section><section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.5-Solver-Prototxt">2.5 Solver Prototxt<a class="anchor-link" href="#2.5-Solver-Prototxt">&#182;</a></h2><p>En este archivo definimos los parámetros globales que rigen el entrenamiento de la red neuronal.</p>
+<div class="highlight"><pre><span class="n">test_iter</span><span class="p">:</span> <span class="mi">8</span> <span class="c"># Especifica cuantos pases adelante la prueba hará</span>
+<span class="n">test_interval</span><span class="p">:</span> <span class="mi">29</span> <span class="c"># Iteraciones para una validación del entrenamiento</span>
+<span class="n">base_lr</span><span class="p">:</span> <span class="mf">0.001</span> <span class="c"># Tasa de aprendizaje</span>
+<span class="n">display</span><span class="p">:</span> <span class="mi">3</span> <span class="c"># Iteraciones para mostrar información de la función de costo (loss)</span>
+<span class="n">max_iter</span><span class="p">:</span> <span class="mi">2900</span> <span class="c"># Número máximo de iteraciones</span>
+<span class="n">lr_policy</span><span class="p">:</span> <span class="s">&quot;step&quot;</span> <span class="c"># Política de disminución de la tasa de aprendizaje</span>
+<span class="n">gamma</span><span class="p">:</span> <span class="mf">0.1</span> <span class="c"># Valor en que disminuimos base_lr</span>
+
+<span class="c"># Momentum y Weight decay de la red neuronal</span>
+<span class="n">momentum</span><span class="p">:</span> <span class="mf">0.9</span> 
+<span class="n">weight_decay</span><span class="p">:</span> <span class="mf">0.0005</span>
+
+<span class="n">stepsize</span><span class="p">:</span> <span class="mi">957</span> <span class="c"># Número de iteraciones necesarias para disminuir la tasa de aprendizaje.</span>
+<span class="n">snapshot</span><span class="p">:</span> <span class="mi">29</span> <span class="c"># Número de iteraciones en que tomaremos una &quot;foto&quot; del estado de la red.</span>
+<span class="n">snapshot_prefix</span><span class="p">:</span> <span class="s">&quot;snapshot&quot;</span> <span class="c"># Sufijo de la &quot;foto&quot; a la red neuronal</span>
+
+<span class="c">#Modo de ejecución CPU/GPU</span>
+<span class="n">solver_mode</span><span class="p">:</span> <span class="n">GPU</span>
+
+<span class="c"># Nombre de la red que entrenaremos en formato prototxt</span>
+<span class="n">net</span><span class="p">:</span> <span class="s">&quot;train_val.prototxt&quot;</span>
+<span class="c"># Modo de evaluación (Stochastic Gradient Descent)</span>
+<span class="n">solver_type</span><span class="p">:</span> <span class="n">SGD</span>
+
+<span class="c">#Opcional, semilla para iniciar los randómicos</span>
+<span class="n">random_seed</span><span class="p">:</span> <span class="mi">64</span>
+</pre></div>
+
+</div>
+</div>
+</div></section><section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Iniciar-un-entrenamiento-con-Caffe">Iniciar un entrenamiento con Caffe<a class="anchor-link" href="#Iniciar-un-entrenamiento-con-Caffe">&#182;</a></h2><div class="highlight"><pre>./<span class="o">{</span>CAFFE_PATH<span class="o">}</span>/build/tools/caffe train --solver<span class="o">=</span>solver.prototxt
+</pre></div>
+
+</div>
+</div>
+</div><div class="fragment" data-fragment-index="14">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Reanudar-un-entrenamiento">Reanudar un entrenamiento<a class="anchor-link" href="#Reanudar-un-entrenamiento">&#182;</a></h2><div class="highlight"><pre>./<span class="o">{</span>CAFFE_PATH<span class="o">}</span>/build/tools/caffe train --solver<span class="o">=</span>solver.prototxt <span class="se">\</span>
+    --snapshot<span class="o">=</span>snapshot_train_iter_10000.solverstate
+</pre></div>
+
+</div>
+</div>
+</div>
+    </div><div class="fragment" data-fragment-index="15">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Finetuning">Finetuning<a class="anchor-link" href="#Finetuning">&#182;</a></h2><div class="highlight"><pre>./<span class="o">{</span>CAFFE_PATH<span class="o">}</span>/build/tools/caffe train --solver solver.prototxt <span class="se">\</span>
+    --weights bvlc_reference_caffenet.caffemodel
+</pre></div>
+
+</div>
+</div>
+</div>
+    </div></section>
     </section><section>
     <section>
     
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Digits">Digits<a class="anchor-link" href="#Digits">&#182;</a></h1><p>Caffe for Digits: <a href="https://github.com/NVIDIA/DIGITS/blob/master/docs/InstallCaffe.md">https://github.com/NVIDIA/DIGITS/blob/master/docs/InstallCaffe.md</a></p>
+<p>Digits: <a href="https://github.com/NVIDIA/DIGITS">https://github.com/NVIDIA/DIGITS</a></p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
