@@ -1,1 +1,1 @@
-[Notebook NBviewer](http://nbviewer.ipython.org/urls/bitbucket.org/sandiego206/10ccc_caffe/raw/d0eeefeb747583c3d6bb12953f265cacae67742e/caffe/Tutorial_Caffe.ipynb)
+[Notebook NBviewer - no slides](http://nbviewer.ipython.org/urls/bitbucket.org/sandiego206/10ccc_caffe/raw/d0eeefeb747583c3d6bb12953f265cacae67742e/caffe/Tutorial_Caffe.ipynb)
