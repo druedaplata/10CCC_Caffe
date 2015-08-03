@@ -222,44 +222,9 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Tutorial-Caffe-+-Digits">Tutorial Caffe + Digits<a class="anchor-link" href="#Tutorial-Caffe-+-Digits">&#182;</a></h1><h2 id="TODO:-Preparar-t&#237;tulo,-nombres,-logos...etc">TODO: Preparar t&#237;tulo, nombres, logos...etc<a class="anchor-link" href="#TODO:-Preparar-t&#237;tulo,-nombres,-logos...etc">&#182;</a></h2>
-</div>
-</div>
-</div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Deep-Learning-with-Caffe">Deep Learning with Caffe<a class="anchor-link" href="#Deep-Learning-with-Caffe">&#182;</a></h1><p>Framework desarrollado en la Universidad de Berkeley usando C++ y CUDA, cuenta con interfaces de uso en Python, Matlab y Linea de Comandos.</p>
-<p>Caffe permite crear una arquitectura de red de manera sencilla, definir hiperparámetros para el entrenamiento y cuenta con una gran cantidad de capas predefinidas, modelos entrenados para realizar clasificación de imagenes.</p>
+<h1 id="Introducci&#243;n-a-Deep-Learning-con-Caffe-y-Digits">Introducci&#243;n a Deep Learning con Caffe y Digits<a class="anchor-link" href="#Introducci&#243;n-a-Deep-Learning-con-Caffe-y-Digits">&#182;</a></h1><p>En este tutorial cubriremos las bases para la clasificación de imágenes con redes neuronales convolucionales, para esto vamos a usar el framework CAFFE y el sistema DIGITS desarrollado por NVIDIA para facilitar el desarrollo, entrenamiento y prueba de redes neuronales.</p>
 <p>Caffe: <a href="https://github.com/BVLC/caffe">https://github.com/BVLC/caffe</a></p>
-
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="2">
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<iframe src="http://demo.caffe.berkeleyvision.org/" width=800 height=800></iframe>
-</div>
-</div>
-</div>
-    </div></section>
-    </section><section>
-    <section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Clasificaci&#243;n-de-Im&#225;genes-con-Caffe">Clasificaci&#243;n de Im&#225;genes con Caffe<a class="anchor-link" href="#Clasificaci&#243;n-de-Im&#225;genes-con-Caffe">&#182;</a></h2><p><img src="imagenes/mylenet.png"></p>
-<p><em>Instruccions detalladas para el entrenamiento en Caffe en el siguiente <a href="http://nbviewer.ipython.org/urls/bitbucket.org/sandiego206/datasets-training/raw/d0c609170f5afaf1881ced95363a21b74dbf5367/Instrucciones.ipynb">enlace</a></em></p>
+<p>Digits: <a href="https://github.com/NVIDIA/DIGITS">https://github.com/NVIDIA/DIGITS</a></p>
 
 </div>
 </div>
@@ -270,83 +235,7 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="1.1-Preprocesamiento-de-Im&#225;genes">1.1 Preprocesamiento de Im&#225;genes<a class="anchor-link" href="#1.1-Preprocesamiento-de-Im&#225;genes">&#182;</a></h2><ul>
-<li><p>Es recomendable tener una gran cantidad de datos en el dataset, en este punto es posible aumentarlos realizando un preprocesamiento en la capa de datos en Caffe, por defecto este incluye:</p>
-<ul>
-<li>Mirroring</li>
-<li>Random crop</li>
-<li>Mean substraction</li>
-<li>Scaling</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="1.2-Balanceo-de-Clases">1.2 Balanceo de Clases<a class="anchor-link" href="#1.2-Balanceo-de-Clases">&#182;</a></h2><ul>
-<li>Para evitar resultados falsamente optimistas es recomendable tener un balanceo de clases que permita a la red neuronal aprender de todos los datos de entrenamiento.</li>
-</ul>
-<p><img src="imagenes/caltech101.png" width=600 height=300></p>
-
-</div>
-</div>
-</div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="1.3-Preparar-el-dataset">1.3 Preparar el dataset<a class="anchor-link" href="#1.3-Preparar-el-dataset">&#182;</a></h2><p>La primera capa de la red neuronal en Caffe, permite leer los datos en diferentes formatos.</p>
-<ul>
-<li><p><strong>Image_Data</strong>: Requiere un csv con el path de cada imagen y la clasificación de estas.<br>
-<br></p>
-</li>
-<li><p><strong>LMDB</strong>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Recomendado para datasets de <strong>gran</strong> tamaño otorga mejor rendimiento I/O, los mismos requisitos que Image_Data.<br>
-<br></p>
-</li>
-<li><p><strong>Window</strong>: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lee ventanas en la imagen, usado para detección de objetos.</p>
-</li>
-</ul>
-
-</div>
-</div>
-</div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="1.4-Data-Layer">1.4 Data Layer<a class="anchor-link" href="#1.4-Data-Layer">&#182;</a></h2><hr>
-<div class="highlight"><pre><span class="n">name</span><span class="p">:</span> <span class="s">&quot;CaltechNet&quot;</span>
-    <span class="n">layer</span> <span class="p">{</span>
-      <span class="n">name</span><span class="p">:</span> <span class="s">&quot;data&quot;</span> 
-      <span class="nb">type</span><span class="p">:</span> <span class="n">DATA</span>
-      <span class="n">top</span><span class="p">:</span> <span class="s">&quot;data&quot;</span>
-      <span class="n">top</span><span class="p">:</span> <span class="s">&quot;label&quot;</span>
-      <span class="n">data_param</span> <span class="p">{</span>
-        <span class="n">source</span><span class="p">:</span> <span class="s">&quot;/bigdata/drueda/datasets_lmdb/caltech_train_lmdb&quot;</span>
-        <span class="n">backend</span><span class="p">:</span> <span class="n">LMDB</span>
-        <span class="n">batch_size</span><span class="p">:</span> <span class="mi">16</span>
-      <span class="p">}</span>
-      <span class="n">transform_param</span> <span class="p">{</span>
-        <span class="n">crop_size</span><span class="p">:</span> <span class="mi">227</span>
-        <span class="n">mean_file</span><span class="p">:</span> <span class="s">&quot;/bigdata/drueda/datasets_lmdb/caltech_mean.binaryproto&quot;</span>
-        <span class="n">mirror</span><span class="p">:</span> <span class="bp">True</span>
-        <span class="p">}</span>
-      <span class="n">include</span><span class="p">:</span> <span class="p">{</span> <span class="n">phase</span><span class="p">:</span> <span class="n">TRAIN</span> <span class="p">}</span>
-    <span class="p">}</span>
-</pre></div>
-<hr>
-
+<iframe src=http://demo.caffe.berkeleyvision.org/ width=100% height=500></iframe>
 </div>
 </div>
 </div></section>
@@ -358,9 +247,13 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2.1-Convolutional-Layer">2.1 Convolutional Layer<a class="anchor-link" href="#2.1-Convolutional-Layer">&#182;</a></h2><hr>
-<p><img src="imagenes/convolution.gif" width=400 height=400 align=left></p>
-<p><img src="imagenes/convolution_text.png" align=center></p>
+<h2 id="Requisitos-para-entrenar-usando-Caffe">Requisitos para entrenar usando Caffe<a class="anchor-link" href="#Requisitos-para-entrenar-usando-Caffe">&#182;</a></h2><ol>
+<li>Seleccionar un dataset.</li>
+<li>Elegir una estructura de red.</li>
+<li>Definir un solver para guiar el entrenamiento.</li>
+<li>Entrenar la red sobre GPU o CPU.</li>
+<li>Evaluar la precisión del modelo y realizar cambios.</li>
+</ol>
 
 </div>
 </div>
@@ -371,9 +264,14 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2.2-Activation-Layer">2.2 Activation Layer<a class="anchor-link" href="#2.2-Activation-Layer">&#182;</a></h2><p><img src="imagenes/relu.png"  align=left>
-<img src="imagenes/relu_text.png" align=center></p>
-
+<h2 id="1.-Seleccionar-un-dataset">1. Seleccionar un dataset<a class="anchor-link" href="#1.-Seleccionar-un-dataset">&#182;</a></h2><p>Para este ejercicio usamos el dataset <strong>Caltech 101</strong>, que contiene objetos y animales de 101 categorias. Cada categoría tiene entre 40 y 800 imágenes.</p>
+<table>
+<tr>
+<td><img src="imagenes/caltech_01.jpg" width=90% align=left></td>
+<td><img src="imagenes/caltech_03.jpg" align=left></td>
+<td><img src="imagenes/caltech_04.jpg" align=left></td>
+</tr>
+</table>
 </div>
 </div>
 </div></section><section>
@@ -383,126 +281,134 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2.3-Pooling-Layer">2.3 Pooling Layer<a class="anchor-link" href="#2.3-Pooling-Layer">&#182;</a></h2><hr>
-<p><img src="imagenes/pooling.gif" width=50% align=left >
-<img src="imagenes/pooling_text.png" align=center ></p>
+<h3 id="1.1-Preparar-el-dataset">1.1 Preparar el dataset<a class="anchor-link" href="#1.1-Preparar-el-dataset">&#182;</a></h3><ul>
+<li><p>Un archivo con la ruta a todas las imagenes y la categoría a la que pertenecen.</p>
+
+<pre><code>  data/imagen_001.jpg 0
+  data/imagen_002.jpg 1
+  data/imagen_003.jpg 1
+  data/imagen_004.jpg 2
+  data/imagen_005.jpg 2
+  data/imagen_006.jpg 0
+  data/imagen_007.jpg 3
+  data/imagen_008.jpg 4</code></pre>
+</li>
+<li><p>Convertimos las imagenes en formato LMDB para mejorar el tiempo de acceso de CAFFE</p>
+</li>
+</ul>
 
 </div>
 </div>
 </div></section><section>
     
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2.4-Fully-Connected-Layer">2.4 Fully Connected Layer<a class="anchor-link" href="#2.4-Fully-Connected-Layer">&#182;</a></h2><p><img src="imagenes/fully_connected.gif" align=left ></p>
-<p><img src="imagenes/fully_connected_text.png" align=center ></p>
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre>%%bash
+<span class="c">#!/usr/bin/env sh</span>
 
-</div>
-</div>
-</div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2.5-Solver-Prototxt">2.5 Solver Prototxt<a class="anchor-link" href="#2.5-Solver-Prototxt">&#182;</a></h2><p>En este archivo definimos los parámetros globales que rigen el entrenamiento de la red neuronal.</p>
-<div class="highlight"><pre><span class="n">test_iter</span><span class="p">:</span> <span class="mi">8</span> <span class="c"># Especifica cuantos pases adelante la prueba hará</span>
-<span class="n">test_interval</span><span class="p">:</span> <span class="mi">29</span> <span class="c"># Iteraciones para una validación del entrenamiento</span>
-<span class="n">base_lr</span><span class="p">:</span> <span class="mf">0.001</span> <span class="c"># Tasa de aprendizaje</span>
-<span class="n">display</span><span class="p">:</span> <span class="mi">3</span> <span class="c"># Iteraciones para mostrar información de la función de costo (loss)</span>
-<span class="n">max_iter</span><span class="p">:</span> <span class="mi">2900</span> <span class="c"># Número máximo de iteraciones</span>
-<span class="n">lr_policy</span><span class="p">:</span> <span class="s">&quot;step&quot;</span> <span class="c"># Política de disminución de la tasa de aprendizaje</span>
-<span class="n">gamma</span><span class="p">:</span> <span class="mf">0.1</span> <span class="c"># Valor en que disminuimos base_lr</span>
+<span class="c"># Ruta donde se guardaran los archivos LMDB</span>
+<span class="nv">OUTPUT</span><span class="o">=</span>/home/sandiego/Programas/datasets
 
-<span class="c"># Momentum y Weight decay de la red neuronal</span>
-<span class="n">momentum</span><span class="p">:</span> <span class="mf">0.9</span> 
-<span class="n">weight_decay</span><span class="p">:</span> <span class="mf">0.0005</span>
+<span class="c"># Ruta donde se encuentran los datos a transformar</span>
+<span class="nv">DATA</span><span class="o">=</span>/home/sandiego/Programas/datasets/caltech_lmdb_ready
 
-<span class="n">stepsize</span><span class="p">:</span> <span class="mi">957</span> <span class="c"># Número de iteraciones necesarias para disminuir la tasa de aprendizaje.</span>
-<span class="n">snapshot</span><span class="p">:</span> <span class="mi">29</span> <span class="c"># Número de iteraciones en que tomaremos una &quot;foto&quot; del estado de la red.</span>
-<span class="n">snapshot_prefix</span><span class="p">:</span> <span class="s">&quot;snapshot&quot;</span> <span class="c"># Sufijo de la &quot;foto&quot; a la red neuronal</span>
+<span class="c"># Ruta de la carpeta TOOLS en la instalación de Caffe</span>
+<span class="nv">TOOLS</span><span class="o">=</span>/home/sandiego/Programas/caffe/build/tools
 
-<span class="c">#Modo de ejecución CPU/GPU</span>
-<span class="n">solver_mode</span><span class="p">:</span> <span class="n">GPU</span>
+<span class="nv">TRAIN_DATA_ROOT</span><span class="o">=</span><span class="nv">$DATA</span>/train/
+<span class="nv">VAL_DATA_ROOT</span><span class="o">=</span><span class="nv">$DATA</span>/val/
 
-<span class="c"># Nombre de la red que entrenaremos en formato prototxt</span>
-<span class="n">net</span><span class="p">:</span> <span class="s">&quot;train_val.prototxt&quot;</span>
-<span class="c"># Modo de evaluación (Stochastic Gradient Descent)</span>
-<span class="n">solver_type</span><span class="p">:</span> <span class="n">SGD</span>
+<span class="nb">echo</span> <span class="s2">&quot;Creating train lmdb...&quot;</span>
 
-<span class="c">#Opcional, semilla para iniciar los randómicos</span>
-<span class="n">random_seed</span><span class="p">:</span> <span class="mi">64</span>
-</pre></div>
+<span class="nv">GLOG_logtostderr</span><span class="o">=</span><span class="m">1</span> <span class="nv">$TOOLS</span>/convert_imageset <span class="se">\</span>
+    --shuffle <span class="se">\</span>
+    <span class="nv">$TRAIN_DATA_ROOT</span> <span class="se">\</span>
+    <span class="nv">$DATA</span>/train/train.txt <span class="se">\</span>
+    <span class="nv">$OUTPUT</span>/caltech_train_lmdb
 
-</div>
-</div>
-</div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Iniciar-un-entrenamiento-con-Caffe">Iniciar un entrenamiento con Caffe<a class="anchor-link" href="#Iniciar-un-entrenamiento-con-Caffe">&#182;</a></h2><div class="highlight"><pre>./<span class="o">{</span>CAFFE_PATH<span class="o">}</span>/build/tools/caffe train --solver<span class="o">=</span>solver.prototxt
-</pre></div>
+<span class="nb">echo</span> <span class="s2">&quot;Creating val lmdb...&quot;</span>
 
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="14">
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Reanudar-un-entrenamiento">Reanudar un entrenamiento<a class="anchor-link" href="#Reanudar-un-entrenamiento">&#182;</a></h2><div class="highlight"><pre>./<span class="o">{</span>CAFFE_PATH<span class="o">}</span>/build/tools/caffe train --solver<span class="o">=</span>solver.prototxt <span class="se">\</span>
-    --snapshot<span class="o">=</span>snapshot_train_iter_10000.solverstate
+<span class="nv">GLOG_logtostderr</span><span class="o">=</span><span class="m">1</span> <span class="nv">$TOOLS</span>/convert_imageset <span class="se">\</span>
+    --shuffle <span class="se">\</span>
+    <span class="nv">$VAL_DATA_ROOT</span> <span class="se">\</span>
+    <span class="nv">$DATA</span>/val/val.txt <span class="se">\</span>
+    <span class="nv">$OUTPUT</span>/caltech_val_lmdb
+
+<span class="nb">echo</span> <span class="s2">&quot;Done.&quot;</span>
 </pre></div>
 
 </div>
 </div>
 </div>
-    </div><div class="fragment" data-fragment-index="15">
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Creating train lmdb...
+Creating val lmdb...
+Done.
+</pre>
 </div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Finetuning">Finetuning<a class="anchor-link" href="#Finetuning">&#182;</a></h2><div class="highlight"><pre>./<span class="o">{</span>CAFFE_PATH<span class="o">}</span>/build/tools/caffe train --solver solver.prototxt <span class="se">\</span>
-    --weights bvlc_reference_caffenet.caffemodel
-</pre></div>
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>I0723 16:46:21.335886  7629 convert_imageset.cpp:79] Shuffling data
+I0723 16:46:21.488708  7629 convert_imageset.cpp:82] A total of 4042 images.
+I0723 16:46:21.488963  7629 db.cpp:34] Opened lmdb /home/sandiego/Programas/datasets/caltech_train_lmdb
+E0723 16:46:26.486884  7629 convert_imageset.cpp:143] Processed 1000 files.
+E0723 16:46:31.498113  7629 convert_imageset.cpp:143] Processed 2000 files.
+E0723 16:46:36.764276  7629 convert_imageset.cpp:143] Processed 3000 files.
+E0723 16:46:41.787422  7629 convert_imageset.cpp:143] Processed 4000 files.
+E0723 16:46:42.076400  7629 convert_imageset.cpp:149] Processed 4042 files.
+I0723 16:46:42.336611  7636 convert_imageset.cpp:79] Shuffling data
+I0723 16:46:42.491736  7636 convert_imageset.cpp:82] A total of 1111 images.
+I0723 16:46:42.491996  7636 db.cpp:34] Opened lmdb /home/sandiego/Programas/datasets/caltech_val_lmdb
+E0723 16:46:47.426725  7636 convert_imageset.cpp:143] Processed 1000 files.
+E0723 16:46:48.026628  7636 convert_imageset.cpp:149] Processed 1111 files.
+</pre>
+</div>
+</div>
 
 </div>
 </div>
-</div>
-    </div></section>
-    </section><section>
-    <section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Digits">Digits<a class="anchor-link" href="#Digits">&#182;</a></h1><p>Caffe for Digits: <a href="https://github.com/NVIDIA/DIGITS/blob/master/docs/InstallCaffe.md">https://github.com/NVIDIA/DIGITS/blob/master/docs/InstallCaffe.md</a></p>
-<p>Digits: <a href="https://github.com/NVIDIA/DIGITS">https://github.com/NVIDIA/DIGITS</a></p>
 
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre> 
+<div class=" highlight hl-ipython2"><pre><span class="o">%%</span><span class="k">html</span>
+&lt;style&gt;
+table,td,tr,th {border:none!important}
+&lt;/style&gt;
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
+<style>
+table,td,tr,th {border:none!important}
+</style>
+</div>
+
+</div>
+
 </div>
 </div>
 
