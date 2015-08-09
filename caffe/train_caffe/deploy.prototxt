@@ -1,37 +1,8 @@
-layer {
-  name: "data"
-  type: "Data"
-  top: "data"
-  top: "label"
-  include {
-    phase: TRAIN
-  }
-  transform_param {
-  }
-  data_param {
-    source: "/home/sandiego/Programas/datasets/cifar10/cifar_train_lmdb"
-    batch_size: 512
-    backend: LMDB
-    prefetch: 4
-  }
-}
-layer {
-  name: "data"
-  type: "Data"
-  top: "data"
-  top: "label"
-  include {
-    phase: TEST
-  }
-  transform_param {
-  }
-  data_param {
-    source: "/home/sandiego/Programas/datasets/cifar10/cifar_val_lmdb"
-    batch_size: 512
-    backend: LMDB
-    prefetch: 4
-  }
-}
+input: "data"
+input_dim: 1
+input_dim: 3
+input_dim: 32
+input_dim: 32
 layer {
   name: "conv1"
   type: "Convolution"
@@ -103,19 +74,9 @@ layer {
   }
 }
 layer {
-  name: "loss"
-  type: "SoftmaxWithLoss"
+  name: "prob"
+  type: "Softmax"
   bottom: "fc8"
-  bottom: "label"
-  top: "loss"
+  top: "prob"
 }
-layer {
-  name: "accuracy"
-  type: "Accuracy"
-  bottom: "fc8"
-  bottom: "label"
-  top: "accuracy"
-  include {
-    phase: TEST
-  }
-}
+
