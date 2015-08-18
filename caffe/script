@@ -1,0 +1,40 @@
+Presentación Redes Neuronales Convolucionales.
+
+1. Introducción.
+
+Las redes convolucionales comparten muchas características con las redes neuronales explicadas anteriormente. Estas son inspiradas en la corteza visual donde un arreglo de células actuan como receptores de pequeñas regiones en el campo de visión. 
+
+Típicamente, tienen los siguientes elementos:
+- Capa Convolucional
+- Capa de No Linealidad
+- Capa de Pooling
+- Capa Fully Connected
+
+
+
+2. Capa Convolucional
+
+Empecemos a explicar la capa convolucional, esta consiste en un grupo de filtros receptivos que desplazamos por todo el ancho y largo de la imagen de entrada, produciendo un mapa de características.
+
+La capa convolucional tiene unas características especiales que debemos explicar para comprender su funcionamiento.
+
+	a. Conectividad Local
+
+	   La idea consiste en conectar cada neurona en la capa convolucional a una región pequeña
+	   en la imagen de entrada, pero conectada a todos los canales de color.
+
+	b. Disposición Espacial
+  
+	   b.1 Depth:
+	       Controla el número de neuronas en la capa convolucional que se conectan a la misma región
+	       en la imagen de entrada. Un grupo de neuronas conectadas a la misma región se conoce como
+	       columna de profundidad.
+
+	   b.2 Stride:
+	       Este parámetro especifica el paso que dara nuestro campo receptivo para ubicar una nueva
+	       columna de profundidad.
+
+	   b.3 Zero-padding:
+	       En ocasiones será conveniente definir los bordes de la entrada a la red en ceros, ya que
+	       esto nos permite controlar el tamaño de la salida en la red.
+	   
