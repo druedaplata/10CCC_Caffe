@@ -7,10 +7,10 @@ lr_policy: "step"
 gamma: 0.1
 momentum: 0.9
 weight_decay: 0.0005
-stepsize: 250
+stepsize: 1000
 snapshot: 500 
 snapshot_prefix: "snapshot"
 solver_mode: GPU
 random_seed: 1989
-net: "/home/sandiego/septiembre/caffe/train_caffe/train_val.prototxt"
+net: "/home/sandiego/10ccc_caffe/caffe/train_caffe/train_val.prototxt"
 solver_type: SGD
