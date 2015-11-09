@@ -1,4 +1,4 @@
-# Instrucciones para usar JupyterHub en Guane #
+# Instrucciones para lanzar tutorial de Caffe con JupyterHub en Guane #
 
 1. Crear una carpeta llamada **jupyter**
 
@@ -17,5 +17,5 @@
         #SBATCH --gres=gpu:4
 
         cp /opt/jupyterhub/jupyterhub_config.py .
-
+        export PATH=/usr/local/caffeDigits/python:$PATH
         sudo jupyterhub
