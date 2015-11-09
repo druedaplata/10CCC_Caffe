@@ -42,3 +42,5 @@ Guane13 = www.sc3.uis.edu.co/guaneJ13
 
         ssh drueda@toctoc.grid.uis.edu.co -L 5000:localhost:5000
         ssh drueda@guane.uis.edu.co -L 5000:guane13:5000
+
+4. En el enlace http://localhost:5000 debería encontrar el servidor de Digits en Guane
