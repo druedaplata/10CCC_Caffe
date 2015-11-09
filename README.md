@@ -1,1 +1,21 @@
-[Notebook NBviewer](http://nbviewer.ipython.org/urls/bitbucket.org/sandiego206/10ccc_caffe/raw/master/caffe/Practica_Caffe.ipynb)
+# Instrucciones para usar JupyterHub en Guane #
+
+1. Crear una carpeta llamada **jupyter**
+
+2. Guardar el siguiente script bajo el nombre **jupyter.batch**
+
+3. Ejecutar el script usando **sbatch jupyter.batch**
+
+        #!/bin/sh
+        #SBATCH --partition=all
+        #SBATCH --time=00:15:00
+        #SBATCH --nodes=1
+        #SBATCH --job-name="Caffe"
+        #SBATCH --output=jupyterhub.out
+        #SBATCH --exclusive
+        #SBATCH --ntasks-per-node=1
+        #SBATCH --gres=gpu:4
+
+        cp /opt/jupyterhub/jupyterhub_config.py .
+
+        sudo jupyterhub
