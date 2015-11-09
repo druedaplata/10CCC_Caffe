@@ -26,4 +26,12 @@ Guane13 = www.sc3.uis.edu.co/guaneJ13
 
 ---
 
+# Instrucciones para inciar el servidor de Digits #
 
+1. Copiar el siguiente script y dar permisos de ejecución.
+
+        #!/bin/bash
+
+        export PYTHONPATH=/usr/local/caffeDigits/python/caffe/proto:$PYTHONPATH
+
+        /usr/local/digits/digits-devserver -p 5000
