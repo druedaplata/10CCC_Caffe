@@ -19,3 +19,11 @@
         cp /opt/jupyterhub/jupyterhub_config.py .
         export PATH=/usr/local/caffeDigits/python:$PATH
         sudo jupyterhub
+
+Consultamos el nodo reservado con **squeue** y accedemos de la siguiente manera:
+
+Guane13 = www.sc3.uis.edu.co/guaneJ13
+
+---
+
+
