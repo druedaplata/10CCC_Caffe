@@ -1,4 +1,7 @@
 #!/bin/bash
 
-/home/sandiego/Programas/digits/digits-devserver --debug
+export PYTHONPATH=/usr/local/caffeDigits/python/caffe/proto:$PYTHONPATH
+
+/usr/local/digits/digits-devserver -p 5000
+
 
