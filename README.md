@@ -28,7 +28,12 @@ Guane13 = www.sc3.uis.edu.co/guaneJ13
 
 # Instrucciones para inciar el servidor de Digits #
 
-1. Copiar el siguiente script **iniciar_digits.sh** y dar permisos de ejecución.
+1. Realizar una conexión a Guane
+
+        ssh drueda@toctoc.grid.uis.edu.co
+        ssh drueda@guane.uis.edu.co
+
+2. Copiar el siguiente script **iniciar_digits.sh** en Guane y dar permisos de ejecución.
 
         #!/bin/bash
 
@@ -36,11 +41,13 @@ Guane13 = www.sc3.uis.edu.co/guaneJ13
 
         /usr/local/digits/digits-devserver -p 5000
 
-2. Realizar una reserva lanzando **srun --gres=gpu:4 iniciar_digits.sh**
+3. Realizar una reserva lanzando **srun --gres=gpu:4 iniciar_digits.sh**
 
-3. Enlazar los puertos con el nodo reservado en guane, por ejemplo Guane13
+4. Enlazar los puertos con el nodo reservado en guane, por ejemplo Guane13
 
         ssh drueda@toctoc.grid.uis.edu.co -L 5000:localhost:5000
         ssh drueda@guane.uis.edu.co -L 5000:guane13:5000
 
-4. En el enlace http://localhost:5000 debería encontrar el servidor de Digits en Guane
+5. En el enlace http://localhost:5000 debería encontrar el servidor de Digits en Guane
+
+**Nota:** Recuerde mantener los terminales con las dos conexiones abiertas.
