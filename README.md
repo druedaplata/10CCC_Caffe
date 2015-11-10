@@ -41,6 +41,7 @@ Guane13 = www.sc3.uis.edu.co/guaneJ13
 
         export PYTHONPATH=/usr/local/caffeDigits/python/caffe/proto:$PYTHONPATH
 
+        squeue
         /usr/local/digits/digits-devserver -p 5000
 
 3. Realizar una reserva lanzando **srun --gres=gpu:4 iniciar_digits.sh**
