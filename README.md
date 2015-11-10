@@ -10,7 +10,7 @@
         #SBATCH --partition=all
         #SBATCH --time=02:00:00
         #SBATCH --nodes=1
-        #SBATCH --job-name="Caffe"
+        #SBATCH --job-name="jupyter"
         #SBATCH --output=jupyterhub.out
         #SBATCH --exclusive
         #SBATCH --ntasks-per-node=1
@@ -39,12 +39,22 @@ Guane13 = www.sc3.uis.edu.co/guaneJ13
 
         #!/bin/bash
 
+        #SBATCH --partition=all
+        #SBATCH --time=02:00:00
+        #SBATCH --nodes=1
+        #SBATCH --job-name="Digits"
+        #SBATCH --output=digits.out
+        #SBATCH --exclusive
+        #SBATCH --ntasks-per-node=1
+        #SBATCH --gres=gpu:4
+
+        export CAFFE_HOME=/usr/local/caffeDigits
         export PYTHONPATH=/usr/local/caffeDigits/python/caffe/proto:$PYTHONPATH
 
         squeue
         /usr/local/digits/digits-devserver -p 5000
 
-3. Realizar una reserva lanzando **srun --gres=gpu:4 iniciar_digits.sh**
+3. Realizar una reserva lanzando **sbatch iniciar_digits.sh**
 
 4. Enlazar los puertos con el nodo reservado en guane, por ejemplo Guane13
 
