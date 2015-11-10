@@ -9,7 +9,7 @@ layer {
   transform_param {
   }
   data_param {
-    source: "/home/sandiego/Programas/datasets/train/cifar_train_lmdb"
+    source: "/bigdata/drueda/datasets/cifar10/train_db"
     batch_size: 100
     backend: LMDB
     prefetch: 4
@@ -26,7 +26,7 @@ layer {
   transform_param {
   }
   data_param {
-    source: "/home/sandiego/Programas/datasets/train/cifar_val_lmdb"
+    source: "/bigdata/drueda/datasets/cifar10/val_db"
     batch_size: 100
     backend: LMDB
     prefetch: 4

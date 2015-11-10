@@ -12,5 +12,5 @@ snapshot: 500
 snapshot_prefix: "snapshot"
 solver_mode: GPU
 random_seed: 1989
-net: "/home/sandiego/10ccc_caffe/caffe/train_caffe/train_val.prototxt"
+net: "./train_caffe/train_val.prototxt"
 solver_type: SGD
