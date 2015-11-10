@@ -32,8 +32,8 @@ Guane13 = www.sc3.uis.edu.co/guaneJ13
 
 1. Realizar una conexión a Guane
 
-        ssh drueda@toctoc.grid.uis.edu.co
-        ssh drueda@guane.uis.edu.co
+        ssh user@toctoc.grid.uis.edu.co
+        ssh user@guane.uis.edu.co
 
 2. Copiar el siguiente script **iniciar_digits.sh** en Guane y dar permisos de ejecución.
 
@@ -47,8 +47,8 @@ Guane13 = www.sc3.uis.edu.co/guaneJ13
 
 4. Enlazar los puertos con el nodo reservado en guane, por ejemplo Guane13
 
-        ssh drueda@toctoc.grid.uis.edu.co -L 5000:localhost:5000
-        ssh drueda@guane.uis.edu.co -L 5000:guane13:5000
+        ssh user@toctoc.grid.uis.edu.co -L 5000:localhost:5000
+        ssh user@guane.uis.edu.co -L 5000:guane13:5000
 
 5. En el enlace http://localhost:5000 debería encontrar el servidor de Digits en Guane
 
