@@ -8,13 +8,13 @@
 
         #!/bin/sh
         #SBATCH --partition=all
-        #SBATCH --time=00:15:00
+        #SBATCH --time=02:00:00
         #SBATCH --nodes=1
         #SBATCH --job-name="Caffe"
         #SBATCH --output=jupyterhub.out
         #SBATCH --exclusive
         #SBATCH --ntasks-per-node=1
-        #SBATCH --gres=gpu:4
+        #SBATCH --gres=gpu:1
 
         cp /opt/jupyterhub/jupyterhub_config.py .
         export PATH=/usr/local/caffeDigits/python:$PATH
