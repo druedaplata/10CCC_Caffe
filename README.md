@@ -17,6 +17,9 @@
         #SBATCH --gres=gpu:1
 
         cp /opt/jupyterhub/jupyterhub_config.py .
+
+        echo "c.MultiKernelManager.default_kernel_name='python2'" >> jupyterhub_config.py
+
         sudo jupyterhub
 
 Consultamos el nodo reservado con **squeue** y accedemos de la siguiente manera:
