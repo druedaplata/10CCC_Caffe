@@ -17,7 +17,6 @@
         #SBATCH --gres=gpu:1
 
         cp /opt/jupyterhub/jupyterhub_config.py .
-        export PATH=/usr/local/caffeDigits/python:$PATH
         sudo jupyterhub
 
 Consultamos el nodo reservado con **squeue** y accedemos de la siguiente manera:
