@@ -22,6 +22,8 @@
 
 Consultamos el nodo reservado con **squeue** y accedemos de la siguiente manera:
 
+Guane04 = www.sc3.uis.edu.co/guaneJ4
+
 Guane13 = www.sc3.uis.edu.co/guaneJ13
 
 ---
